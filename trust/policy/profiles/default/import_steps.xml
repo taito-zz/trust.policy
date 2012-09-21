@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step
+    handler="trust.policy.setuphandlers.setupVarious"
+    id="trust.policy.various"
+    title="trust.policy: miscellaneous import steps"
+    version="20120121-01">
+    Various import steps that are not handled by GS import/export
+    handlers.
+    <dependency step="metadata"/>
+  </import-step>
+</import-steps>

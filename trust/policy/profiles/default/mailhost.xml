@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object
+  name="MailHost"
+  meta_type="Mail Host"
+  smtp_host="smtp.gmail.com"
+  smtp_port="587"
+  smtp_pwd=""
+  smtp_uid=""
+  />
