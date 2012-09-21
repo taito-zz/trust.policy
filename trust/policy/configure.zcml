@@ -1,0 +1,18 @@
+<configure
+  xmlns:five="http://namespaces.zope.org/five"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns="http://namespaces.zope.org/zope">
+
+  <!-- Do not use <includeDependencies package="." /> directive! -->
+  <!-- This might break whole plone site! -->
+  <!-- Use <include package="..."/> for specific packages instead. -->
+
+  <genericsetup:registerProfile
+    description="Installs the trust.policy package"
+    directory="profiles/default"
+    name="default"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    title="trust.policy"
+    />
+
+</configure>
