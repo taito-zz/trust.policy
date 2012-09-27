@@ -26,7 +26,8 @@ setup(
     install_requires=[
         'hexagonit.testing',
         'plone.browserlayer',
-        'setuptools'],
+        'setuptools',
+        'trust.template'],
     entry_points="""
     # -*- Entry points: -*-
 

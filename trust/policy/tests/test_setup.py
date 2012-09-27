@@ -12,6 +12,10 @@ class TestCase(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.assertTrue(installer.isProductInstalled('trust.policy'))
 
+    def test_is_trust_template_installed(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.assertTrue(installer.isProductInstalled('trust.template'))
+
     def test_browserlayer(self):
         from trust.policy.browser.interfaces import ITrustPolicyLayer
         from plone.browserlayer import utils

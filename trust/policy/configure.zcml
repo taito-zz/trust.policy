@@ -3,9 +3,7 @@
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
   xmlns="http://namespaces.zope.org/zope">
 
-  <!-- Do not use <includeDependencies package="." /> directive! -->
-  <!-- This might break whole plone site! -->
-  <!-- Use <include package="..."/> for specific packages instead. -->
+  <includeDependencies package="." />
 
   <genericsetup:registerProfile
     description="Installs the trust.policy package"

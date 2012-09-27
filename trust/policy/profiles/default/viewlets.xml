@@ -3,7 +3,6 @@
   <hidden manager="plone.portalheader" skinname="Plone Default">
     <viewlet name="plone.searchbox" />
     <viewlet name="plone.logo" />
-    <viewlet name="plone.global_sections" />
   </hidden>
   <hidden manager="plone.abovecontent" skinname="Plone Default">
     <viewlet name="plone.path_bar" />

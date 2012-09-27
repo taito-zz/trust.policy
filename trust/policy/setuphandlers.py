@@ -16,9 +16,9 @@ def uninstall_package(context, packages):
     portal = context.getSite()
     installer = getToolByName(portal, 'portal_quickinstaller')
     packages = [
-        package for package in packages if installer.isProductInstalled(package)
-    ]
+        package for package in packages if installer.isProductInstalled(package)]
     installer.uninstallProducts(packages)
+
 
 def remove_front_page(context):
     portal = context.getSite()
