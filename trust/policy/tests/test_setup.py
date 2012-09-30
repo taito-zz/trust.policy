@@ -21,6 +21,15 @@ class TestCase(IntegrationTestCase):
         from plone.browserlayer import utils
         self.assertIn(ITrustPolicyLayer, utils.registered_layers())
 
+    def test_cssregistry(self):
+        css = getToolByName(self.portal, 'portal_css')
+        self.assertFalse(css.getResource(
+            '++resource++plone.app.jquerytools.overlays.css').getEnabled())
+
+    def test_jsregistry__popupforms(self):
+        javascripts = getToolByName(self.portal, 'portal_javascripts')
+        self.assertFalse(javascripts.getResource('popupforms.js').getEnabled())
+
     def test_mailhost__smtp_host(self):
         mailhost = getToolByName(self.portal, 'MailHost')
         self.assertEqual(mailhost.smtp_host, 'smtp.gmail.com')
@@ -67,6 +76,11 @@ class TestCase(IntegrationTestCase):
     def test_setuphanders__set_enable_user_folders(self):
         from plone.app.controlpanel.security import ISecuritySchema
         self.assertTrue(ISecuritySchema(self.portal).get_enable_user_folders())
+
+    def test_setuphandlers_exclude_from_nav(self):
+        ids = ['news', 'events', 'Members']
+        for oid in ids:
+            self.assertTrue(self.portal[oid].getExcludeFromNav())
 
     def test_tinymce__link_using_uids(self):
         tinymce = getToolByName(self.portal, 'portal_tinymce')
