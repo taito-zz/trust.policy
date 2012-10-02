@@ -45,8 +45,8 @@ def set_member_area_type(context):
 
 def setupVarious(context):
 
-    # if context.readDataFile('trust.policy_various.txt') is None:
-    #     return
+    if context.readDataFile('trust.policy_various.txt') is None:
+        return
 
     uninstall_package(context, ['plonetheme.classic'])
     ISecuritySchema(context.getSite()).set_enable_user_folders(True)
