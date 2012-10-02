@@ -1,0 +1,15 @@
+Go to Site::
+
+    >>> browser.open('/')
+
+Log in as member@member.one::
+
+    >>> browser.getControl(name="__ac_name").value = 'member@member.one'
+    >>> browser.getControl(name="__ac_password").value = 'member1'
+    >>> browser.getControl(name="submit").click()
+
+    >>> browser.url
+    'http://nohost/plone/Members/member-40member.one'
+
+    >>> 'My Folder' in browser.contents
+    False

@@ -2,6 +2,7 @@
 <metadata>
   <version>0</version>
   <dependencies>
+    <dependency>profile-trust.content:default</dependency>
     <dependency>profile-trust.template:default</dependency>
   </dependencies>
 </metadata>

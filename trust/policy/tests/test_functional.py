@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 from hexagonit.testing.browser import Browser
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
@@ -42,6 +43,14 @@ def setUp(self):
 
     setRoles(portal, TEST_USER_ID, ['Manager'])
 
+    regtool = getToolByName(portal, 'portal_registration')
+
+    regtool.addMember('member@member.one', 'member1')
+    setRoles(portal, 'member@member.one', ['Member'])
+
+    regtool.addMember('member@member.two', 'member2')
+    setRoles(portal, 'member@member.two', ['Member'])
+
     transaction.commit()
 
 
@@ -73,4 +82,5 @@ def DocFileSuite(testfile, flags=FLAGS, setUp=setUp, layer=FUNCTIONAL_TESTING):
 def test_suite():
     return unittest.TestSuite([
         DocFileSuite('functional/browser.txt'),
+        DocFileSuite('functional/member_site.txt'),
         ])

@@ -27,6 +27,7 @@ setup(
         'hexagonit.testing',
         'plone.browserlayer',
         'setuptools',
+        'trust.content',
         'trust.template'],
     entry_points="""
     # -*- Entry points: -*-

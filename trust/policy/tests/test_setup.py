@@ -8,9 +8,13 @@ class TestCase(IntegrationTestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
-    def test_is_trust_policy_installed(self):
+    def test_is_package_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.assertTrue(installer.isProductInstalled('trust.policy'))
+
+    def test_is_trust_content_installed(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.assertTrue(installer.isProductInstalled('trust.content'))
 
     def test_is_trust_template_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -81,6 +85,10 @@ class TestCase(IntegrationTestCase):
         ids = ['news', 'events', 'Members']
         for oid in ids:
             self.assertTrue(self.portal[oid].getExcludeFromNav())
+
+    def test_set_member_area_type(self):
+        membership = getToolByName(self.portal, 'portal_membership')
+        self.assertEqual(membership.memberarea_type, 'trust.content.MemberSite')
 
     def test_tinymce__link_using_uids(self):
         tinymce = getToolByName(self.portal, 'portal_tinymce')
