@@ -77,10 +77,6 @@ class TestCase(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.assertFalse(installer.isProductInstalled('plonetheme.classic'))
 
-    def test_setuphanders__set_enable_user_folders(self):
-        from plone.app.controlpanel.security import ISecuritySchema
-        self.assertTrue(ISecuritySchema(self.portal).get_enable_user_folders())
-
     def test_setuphandlers_exclude_from_nav(self):
         ids = ['news', 'events', 'Members']
         for oid in ids:

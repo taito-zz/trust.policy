@@ -1,5 +1,4 @@
 from Products.CMFCore.utils import getToolByName
-from plone.app.controlpanel.security import ISecuritySchema
 
 import logging
 
@@ -20,18 +19,11 @@ def uninstall_package(context, packages):
     installer.uninstallProducts(packages)
 
 
-def remove_front_page(context):
-    portal = context.getSite()
-    # if portal.get('front-page'):
-    portal.manage_delObjects(['front-page'])
-
-
 def exclude_from_nav(context):
     portal = context.getSite()
     ids = ['news', 'events', 'Members']
     for oid in ids:
         obj = portal.get(oid)
-        # if obj:
         obj.setExcludeFromNav(True)
         obj.reindexObject()
 
@@ -49,7 +41,5 @@ def setupVarious(context):
         return
 
     uninstall_package(context, ['plonetheme.classic'])
-    ISecuritySchema(context.getSite()).set_enable_user_folders(True)
-    remove_front_page(context)
     exclude_from_nav(context)
     set_member_area_type(context)
